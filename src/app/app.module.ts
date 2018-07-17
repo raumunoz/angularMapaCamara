@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
-import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 @NgModule({
@@ -17,10 +16,9 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
     FormsModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDO9KAdVa-kZgyfRSFKkKvfzjr9id-i5mk'
+      apiKey: ''
     }),
-    AgmSnazzyInfoWindowModule,
-    AgmJsMarkerClustererModule
+    AgmSnazzyInfoWindowModule
   ],
   providers: [],
   bootstrap: [AppComponent]

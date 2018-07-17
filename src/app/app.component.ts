@@ -11,7 +11,6 @@ export class AppComponent {
   lngI: number = 7.809007;
   lat: number = 51.678418;
   lng: number = 7.809007;
-  color: string="#AABBAA";
   locacionEscogida=false;
   escogerLocacion(event){
     this.lat=event.coords.lat;
