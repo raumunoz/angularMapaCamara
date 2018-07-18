@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
+
+import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 @NgModule({
@@ -18,6 +20,7 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
     AgmCoreModule.forRoot({
       apiKey: ''
     }),
+    AgmSnazzyInfoWindowModule,
     AgmSnazzyInfoWindowModule
   ],
   providers: [],
