@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { PosicionesService } from 'services/posiciones.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,6 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor (private posiciones:PosicionesService){}
   title: string = 'Mapita';
   latI: number = 51.678418;
   lngI: number = 7.809007;
@@ -17,4 +21,11 @@ export class AppComponent {
     this.lng=event.coords.lng;
     this.locacionEscogida=true;
   }
+  ngOnInit(){
+    console.log("servicio",this.posiciones.regresaDatos());
+    this.posiciones.regresaDatos().subscribe((data)=>{
+      console.log("acabo",data);
+    })
+  }
+
 }
