@@ -21,8 +21,10 @@
               "src/favicon.ico"
             ],
             "styles": [
+              
               "src/styles.css",
-              "./node_modules/snazzy-info-window/dist/snazzy-info-window.css"
+              "./node_modules/snazzy-info-window/dist/snazzy-info-window.css",
+              
             ],
             "scripts": []
           },
@@ -93,7 +95,8 @@
             "polyfills": "src/polyfills.ts",
             "scripts": [],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "../node_modules/videogular2/fonts/videogular.css"
             ],
             "assets": [
               "src/assets",
