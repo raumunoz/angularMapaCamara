@@ -20,7 +20,7 @@ import { PosicionesService } from 'services/posiciones.service'
     FormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD3qsYuBy5lvHPcS3I2F5ONXSybmkBco4I'
+      apiKey: ''
     }),
     AgmSnazzyInfoWindowModule,
     AgmJsMarkerClustererModule
