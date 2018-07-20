@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '../../node_modules/@angular/common/http';
-
+import { HttpClient } from '@angular/common/http';
+import {Posicion}from '../models/posicion';
+import { Observable} from 'rxjs';
 @Injectable()
 export class PosicionesService {
   
@@ -17,5 +18,8 @@ export class PosicionesService {
      return obs;
       
     }
-  
+    moveISS (){
+      let obs=this._http.get<Posicion>('http://api.open-notify.org/iss-now.json');
+        return obs;
+  }
 }
