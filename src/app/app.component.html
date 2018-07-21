@@ -1,64 +1,6 @@
-<h1>{{ title }}</h1>
 
-<!-- this creates a google map on the page with the given lat/lng from -->
-<!-- the component as the initial center of the map: -->
-<agm-map [latitude]="51.673858" [longitude]="7.815982">
-  <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
-    <agm-marker [latitude]="latIss" [longitude]="lngIss">
-        <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
-            <ng-template>
-              My first Snazzy Info Window!
-            </ng-template>
-          </agm-snazzy-info-window>
-    </agm-marker>
-    <!-- multiple markers -->
-    <agm-marker [latitude]="52.673858" [longitude]="9.815982">
-        <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
-            <ng-template>
-              My first Snazzy Info Window!
-            </ng-template>
-          </agm-snazzy-info-window>
-    </agm-marker>
-    <!-- multiple markers -->
-    <agm-marker [latitude]="53.673858" [longitude]="10.815982">
-        <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
-            <ng-template>
-              My first Snazzy Info Window!
-            </ng-template>
-          </agm-snazzy-info-window>
-    </agm-marker>
-    <!-- multiple markers -->
-    <agm-marker [latitude]="54.673858" [longitude]="11.815982">
-        <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
-            <ng-template>
-              My first Snazzy Info Window!
-            </ng-template>
-          </agm-snazzy-info-window>
-    </agm-marker>
-    <!-- multiple markers -->
-    <agm-marker [latitude]="55.673858" [longitude]="12.815982">
-        <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
-            <ng-template>
-              My first Snazzy Info Window!
-            </ng-template>
-          </agm-snazzy-info-window>
-    </agm-marker>
-    <!-- multiple markers -->
-    <agm-marker [latitude]="56.673858" [longitude]="13.815982">
-        <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
-            <ng-template>
-              My first Snazzy Info Window!
-            </ng-template>
-          </agm-snazzy-info-window>
-    </agm-marker>
-    <!-- multiple markers -->
-    <agm-marker [latitude]="57.673858" [longitude]="14.815982">
-        <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
-            <ng-template>
-              My first Snazzy Info Window!
-            </ng-template>
-          </agm-snazzy-info-window>
-    </agm-marker>
-    <!-- multiple markers -->
-  </agm-marker-cluster>
-</agm-map>
+
+<div class="container">
+  <app-nav-bar></app-nav-bar>
+  <router-outlet></router-outlet>
+</div>

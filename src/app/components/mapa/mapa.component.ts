@@ -1,15 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PosicionesService } from 'services/posiciones.service';
-import { Posicion } from '../models/posicion';
+import { Posicion } from '../../../models/posicion';
 import { Observable } from 'rxjs';
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-mapa',
+  templateUrl: './mapa.component.html',
+  styleUrls: ['./mapa.component.css']
 })
-export class AppComponent {
-<<<<<<< HEAD
+export class MapaComponent implements OnInit {
   constructor(private posiciones: PosicionesService) { }
   title: string = 'Mapita';
   latI: number = 51.678418;
@@ -31,20 +29,12 @@ export class AppComponent {
     this.timer.subscribe((t) => this.onTimeOut());
   }
   onTimeOut() {
-    /*this.posiciones.moveISS().subscribe((data)=>{
+    this.posiciones.moveISS().subscribe((data)=>{
       console.log("los datos son",data);
       this.latIss=Number(data.iss_position.latitude);
       this.lngIss=Number(data.iss_position.longitude);
       this.timer.subscribe((t) => this.onTimeOut());
-    });*/
-    this.posiciones.moveCar().subscribe((data)=>{
-      console.log("los datos son",data.json());
-    })
-=======
-  constructor() { }
-
-  ngOnInit() {
-
->>>>>>> camara
+    });
   }
+
 }
