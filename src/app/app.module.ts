@@ -15,13 +15,21 @@ import { CamarasService } from 'services/camaras.service';
 
 import { VgCoreModule } from 'videogular2/core';
 import { VgControlsModule } from 'videogular2/controls';
+import { VgStreamingModule } from 'videogular2/streaming';
+
 import { VideoComponent } from './components/video/video.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { MapaComponent } from './components/mapa/mapa.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    VideoComponent
+    VideoComponent,
+    NavBarComponent,
+    MapaComponent,
+    
   ],
   imports: [
     VgControlsModule,
@@ -30,6 +38,7 @@ import { VideoComponent } from './components/video/video.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    VgStreamingModule,
     AgmCoreModule.forRoot({
       apiKey: ''
     }),

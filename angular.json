@@ -23,10 +23,12 @@
             "styles": [
               
               "src/styles.css",
-              "./node_modules/snazzy-info-window/dist/snazzy-info-window.css",
+              "./node_modules/snazzy-info-window/dist/snazzy-info-window.css"
               
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/hls.js/dist/hls.min.js"
+            ]
           },
           "configurations": {
             "source": {
@@ -93,7 +95,9 @@
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
-            "scripts": [],
+            "scripts": [
+              
+            ],
             "styles": [
               "src/styles.css",
               "../node_modules/videogular2/fonts/videogular.css"
