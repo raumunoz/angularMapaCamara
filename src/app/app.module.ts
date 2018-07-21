@@ -8,9 +8,10 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
-import {  HttpClientModule } from '@angular/common/http'
-
+import {  HttpClientModule } from '@angular/common/http';
+import { JsonpModule } from '@angular/http'
 import { PosicionesService } from 'services/posiciones.service'
+//import {API} from '../../src/API'
 @NgModule({
   declarations: [
     AppComponent
@@ -19,6 +20,7 @@ import { PosicionesService } from 'services/posiciones.service'
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    JsonpModule,
     AgmCoreModule.forRoot({
       apiKey: ''
     }),

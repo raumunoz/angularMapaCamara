@@ -30,11 +30,14 @@ export class AppComponent {
     this.timer.subscribe((t) => this.onTimeOut());
   }
   onTimeOut() {
-    this.posiciones.moveISS().subscribe((data)=>{
+    /*this.posiciones.moveISS().subscribe((data)=>{
       console.log("los datos son",data);
       this.latIss=Number(data.iss_position.latitude);
       this.lngIss=Number(data.iss_position.longitude);
       this.timer.subscribe((t) => this.onTimeOut());
-    });
+    });*/
+    this.posiciones.moveCar().subscribe((data)=>{
+      console.log("los datos son",data.json());
+    })
   }
 }
