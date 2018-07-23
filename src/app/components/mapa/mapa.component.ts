@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PosicionesService } from 'services/posiciones.service';
-import { Posicion } from '../../../models/posicion';
+import { Posicion } from 'models/posicion';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-mapa',
@@ -18,6 +18,8 @@ export class MapaComponent implements OnInit {
   n: number = 0;
   latIss: number = 0;
   lngIss: number = 0;
+  numeros: number[] = [60.987, 50.45, 55.12];
+  datos:Observable<Posicion>;
   private timer;
   escogerLocacion(event) {
     this.lat = event.coords.lat;
@@ -29,10 +31,14 @@ export class MapaComponent implements OnInit {
     this.timer.subscribe((t) => this.onTimeOut());
   }
   onTimeOut() {
-    this.posiciones.moveISS().subscribe((data)=>{
-      console.log("los datos son",data);
-      this.latIss=Number(data.iss_position.latitude);
-      this.lngIss=Number(data.iss_position.longitude);
+    this.posiciones.posicionVehiculos().subscribe((data)=>{
+      if(this.posiciones){
+        console.log("definido");
+      }else{
+        
+        console.log("no definido");
+      }
+      console.log("latitud del primer dato",data.BusPositions[0].Lat);
       this.timer.subscribe((t) => this.onTimeOut());
     });
   }

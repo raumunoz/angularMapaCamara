@@ -10,6 +10,10 @@
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor"
   },
+  "peerDependencies": {
+    "@angular/core": "^6.0.3",
+    "rxjs": "^6.0.0"
+  },
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0-beta.3",
@@ -30,7 +34,6 @@
     "core-js": "^2.4.1",
     "hls.js": "^0.10.1",
     "js-marker-clusterer": "^1.0.0",
-    "rxjs": "^5.5.11",
     "snazzy-info-window": "^1.1.1",
     "ts-helpers": "^1.1.1",
     "videogular2": "^6.3.0",
@@ -51,9 +54,9 @@
     "karma-jasmine": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
     "protractor": "~4.0.13",
+    "rxjs": "^5.5.11",
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
-    "typescript": "2.4.2",
-    "rxjs": "^5.5.11"
+    "typescript": "2.4.2"
   }
 }
