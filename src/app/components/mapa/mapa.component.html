@@ -1,11 +1,21 @@
 
-<div *ngIf="datos | async" >
-  saludo
+<div *ngIf="obsAutobus | async as autobuses" >
+    <table>
+        <thead>
+            <th>Vehiculos</th>
+        </thead>
+        <tbody>
+                <tr >
+                    <td *ngFor="let bus of autobuses.BusPositions">-vehiculo:{{bus.VehicleID}}-</td>
+                </tr>
+            
+        </tbody>
+    </table>
 </div>
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
-<agm-map [latitude]="0" [longitude]="0">
-  <agm-marker-cluster *ngIf="datos | async" imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+<agm-map [latitude]=" 38.9041" [longitude]="-77.0171">
+  <agm-marker-cluster *ngIf="obsAutobus | async  as autobuses " imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
    
     <agm-marker [latitude]="latIss" [longitude]="lngIss">
       <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
@@ -15,10 +25,11 @@
       </agm-snazzy-info-window>
     </agm-marker>
     <!-- multiple markers -->
-    <agm-marker *ngFor="let num of numeros" [latitude]="num" [longitude]="num">
+    <agm-marker  *ngFor="let bus of autobusesCordenadas.BusPositions" [latitude]="bus.Lat" [longitude]="bus.Lon">
       <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
         <ng-template>
-        {{num}}
+        AutoBus  
+        {{bus.VehicleID}}
         </ng-template>
       </agm-snazzy-info-window>
     </agm-marker>

@@ -21,29 +21,38 @@ export class MapaComponent implements OnInit {
   latIss: number = 0;
   lngIss: number = 0;
   numeros: number[] = [60.987, 50.45, 55.12];
-  datos:Observable<Posicion>;
+  datosEstacion:Observable<Posicion>;
+  obsAutobus:Observable<Autobus>;
+  autobusesCordenadas:Autobus;
   private timer;
+  private timerAutobus;
   escogerLocacion(event) {
     this.lat = event.coords.lat;
     this.lng = event.coords.lng;
     this.locacionEscogida = true;
-    console.log("datos",this.datos);
+   // console.log("datos",this.datosEstacion);
   }
   ngOnInit() {
-    console.log("Los datos estan",this.datos);
+    //console.log("Los datos estan",this.datosEstacion);
     
-    this.timer = Observable.timer(10000);
-    this.timer.subscribe((t) => this.onTimeOut());
+    this.timerAutobus = Observable.timer(10000);
+   
+    this.datosEstacion=this.posiciones.moveISS();
+    this.obsAutobus=this.posiciones.posicionVehiculos();
+    
+    this.timerAutobus.subscribe((t) => this.onTimeOut());
     //this.datos=this.posiciones.moveISS();
+    
   }
   onTimeOut() {
-    this.datos=this.posiciones.moveISS();
-    this.datos.subscribe((data)=>{
-      console.log("los datos devueltos  son",data);
-      console.log("el obserbable esta",this.datos);
+    this.posiciones.posicionVehiculos().subscribe((bus)=>{
+      
+      this.autobusesCordenadas=bus;
+      console.log("los autobuses son",this.autobusesCordenadas);
      /* console.log("latitud del primer dato",data.BusPositions[0].Lat);*/
-      this.timer.subscribe((t) => this.onTimeOut());
+      this.timerAutobus.subscribe((t) => this.onTimeOut());
     });
+
   }
 
 }
