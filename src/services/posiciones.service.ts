@@ -28,7 +28,7 @@ export class PosicionesService {
 
   }
   moveISS() {
-    let obs = this._http.get<Posicion>('http://api.open-notify.org/iss-now.json');
+    let obs=this._http.get<Posicion>('http://api.open-notify.org/iss-now.json');
     return obs;
   }
   jsonpCArros() {

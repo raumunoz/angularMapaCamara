@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PosicionesService } from 'services/posiciones.service';
 import { Posicion } from 'models/posicion';
+import { Autobus } from 'models/autobus';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-mapa',
@@ -8,6 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./mapa.component.css']
 })
 export class MapaComponent implements OnInit {
+  posicionObs: Observable<Posicion>;
   constructor(private posiciones: PosicionesService) { }
   title: string = 'Mapita';
   latI: number = 51.678418;
@@ -25,20 +27,21 @@ export class MapaComponent implements OnInit {
     this.lat = event.coords.lat;
     this.lng = event.coords.lng;
     this.locacionEscogida = true;
+    console.log("datos",this.datos);
   }
   ngOnInit() {
+    console.log("Los datos estan",this.datos);
+    
     this.timer = Observable.timer(10000);
     this.timer.subscribe((t) => this.onTimeOut());
+    //this.datos=this.posiciones.moveISS();
   }
   onTimeOut() {
-    this.posiciones.posicionVehiculos().subscribe((data)=>{
-      if(this.posiciones){
-        console.log("definido");
-      }else{
-        
-        console.log("no definido");
-      }
-      console.log("latitud del primer dato",data.BusPositions[0].Lat);
+    this.datos=this.posiciones.moveISS();
+    this.datos.subscribe((data)=>{
+      console.log("los datos devueltos  son",data);
+      console.log("el obserbable esta",this.datos);
+     /* console.log("latitud del primer dato",data.BusPositions[0].Lat);*/
       this.timer.subscribe((t) => this.onTimeOut());
     });
   }

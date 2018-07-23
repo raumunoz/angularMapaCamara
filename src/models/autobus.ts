@@ -1,29 +1,29 @@
 
 export interface Autobus {
     BusPositions: [{
-        DateTime: Date,
+        DateTime?: Date,
 
-        Deviation: number,
+        Deviation?: number,
 
-        DirectionNum: number,
+        DirectionNum?: number,
 
-        DirectionText: string,
+        DirectionText?: string,
 
         Lat: number,
 
         Lon: number,
 
-        RouteID: string,
+        RouteID?: string,
 
-        TripEndTime: Date,
+        TripEndTime?: Date,
 
-        TripHeadsign: string,
+        TripHeadsign?: string,
 
-        TripID: number,
+        TripID?: number,
 
-        TripStartTime: Date,
+        TripStartTime?: Date,
 
-        VehicleID: number,
+        VehicleID?: number,
     }]
 
 }

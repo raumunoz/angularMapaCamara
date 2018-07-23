@@ -1,9 +1,11 @@
 
-
+<div *ngIf="datos | async" >
+  saludo
+</div>
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 <agm-map [latitude]="0" [longitude]="0">
-  <agm-marker-cluster *ngIf="posiciones | async ;" imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+  <agm-marker-cluster *ngIf="datos | async" imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
    
     <agm-marker [latitude]="latIss" [longitude]="lngIss">
       <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
