@@ -32,10 +32,12 @@
     "@angular/router": "^5.0.0",
     "chart.js": "^2.7.2",
     "core-js": "^2.4.1",
+    "dashjs": "^2.8.0",
     "hls.js": "^0.10.1",
     "js-marker-clusterer": "^1.0.0",
     "snazzy-info-window": "^1.1.1",
     "ts-helpers": "^1.1.1",
+    "videogular-dash": "^1.4.4",
     "videogular2": "^6.3.0",
     "zone.js": "^0.7.2"
   },

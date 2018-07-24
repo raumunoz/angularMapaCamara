@@ -26,10 +26,9 @@
     </agm-marker>
     <!-- multiple markers -->
     <agm-marker  *ngFor="let bus of autobusesCordenadas.BusPositions" [latitude]="bus.Lat" [longitude]="bus.Lon">
-      <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
+      <agm-snazzy-info-window [maxWidth]="600" [maxHeight]="600" [closeWhenOthersOpen]="true">
         <ng-template>
-        AutoBus  
-        {{bus.VehicleID}}
+     <app-video></app-video>
         </ng-template>
       </agm-snazzy-info-window>
     </agm-marker>
