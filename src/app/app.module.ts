@@ -44,7 +44,7 @@ import { MapaComponent } from './components/mapa/mapa.component';
     AppRoutingModule,
     VgStreamingModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyAMScCLB9o7YqK2hVIaJ3mvUxZjsDjtOvA'
     }),
     AgmSnazzyInfoWindowModule,
     AgmJsMarkerClustererModule
