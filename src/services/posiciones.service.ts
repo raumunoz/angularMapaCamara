@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class PosicionesService {
 
-  
+   obs:Observable<Autobus>;
    
 
 
   constructor(public _http: HttpClient, private jsonp: Jsonp) { 
 
   }
- 
+   
 
   ngOnInit() {
     let obs = this._http.get('https://api.github.com/users/raumunoz');
@@ -37,10 +37,16 @@ export class PosicionesService {
   }
   posicionVehiculos() {
 
-    let obs = this._http.get<Autobus>('https://api.wmata.com/Bus.svc/json/jBusPositions?RouteID=70',{ params:{'api_key':'','Host':'api.wmata.com'} });
-    return obs;
-
+    /*this.obs = this._http.get<Autobus>('https://api.wmata.com/Bus.svc/json/jBusPositions?RouteID=70',{ params:{'api_key':'1d0f07efd29b40708366c4a8bc237db3','Host':'api.wmata.com'} });
+     return this.obs;*/
+    return Observable
+      .interval(5000)
+      .flatMap(() => {
+        return this._http.get<Autobus>('https://api.wmata.com/Bus.svc/json/jBusPositions?RouteID=70', { params: { 'api_key': '', 'Host': 'api.wmata.com' } });
+      });
   }
+
+
   JSONP_CALLBACK = (err, Response) => {
     // output: {"id":100}
     if (err) {

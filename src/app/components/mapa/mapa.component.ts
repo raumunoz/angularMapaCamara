@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class MapaComponent implements OnInit {
   posicionObs: Observable<Posicion>;
+  observerBus:any;
   constructor(private posiciones: PosicionesService) { }
   title: string = 'Mapita';
   latI: number = 51.678418;
@@ -35,24 +36,29 @@ export class MapaComponent implements OnInit {
   ngOnInit() {
     //console.log("Los datos estan",this.datosEstacion);
     
-    this.timerAutobus = Observable.timer(10000);
+   // this.timerAutobus = Observable.timer(10000);
    
-    this.datosEstacion=this.posiciones.moveISS();
-    this.obsAutobus=this.posiciones.posicionVehiculos();
+    //this.datosEstacion=this.posiciones.moveISS();
     
-    this.timerAutobus.subscribe((t) => this.onTimeOut());
+    
+    //this.timerAutobus.subscribe((t) => this.onTimeOut());
     //this.datos=this.posiciones.moveISS();
-    
+    this.obsAutobus=this.posiciones.posicionVehiculos();
+    this.posiciones.posicionVehiculos().subscribe((bus)=>{
+      this.autobusesCordenadas=bus;
+     
+      console.log(this.autobusesCordenadas);
+    });
   }
-  onTimeOut() {
+ /* onTimeOut() {
     this.posiciones.posicionVehiculos().subscribe((bus)=>{
       
       this.autobusesCordenadas=bus;
       console.log("los autobuses son",this.autobusesCordenadas);
-     /* console.log("latitud del primer dato",data.BusPositions[0].Lat);*/
+     /* console.log("latitud del primer dato",data.BusPositions[0].Lat);
       this.timerAutobus.subscribe((t) => this.onTimeOut());
     });
 
-  }
+  }*/
 
 }
